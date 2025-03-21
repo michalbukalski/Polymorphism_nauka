@@ -7,11 +7,12 @@ public class Movie {
     }
 
     public void watchMovie() {
+
         String instanceType = this.getClass().getSimpleName();
         System.out.println(title + " is a " + instanceType + " film");
     }
 
-    public static Movie getMovie(String type, String title){
+    public static Movie getMovie(String type, String title) {
 
         return switch (type.toUpperCase().charAt(0)) {
             case 'A' -> new Adventure(title);
@@ -20,7 +21,6 @@ public class Movie {
             default -> new Movie(title);
         };
     }
-
 }
 
 class Adventure extends Movie {
@@ -32,8 +32,14 @@ class Adventure extends Movie {
     @Override
     public void watchMovie() {
         super.watchMovie();
+        System.out.printf(".. %s%n".repeat(3),
+                "Pleasant Scene",
+                "Scary Music",
+                "Something Bad Happens");
+    }
 
-        System.out.printf("..%s%n".repeat(3),"Pleasand Scene", "Scary Music", "Something Bad Happens");
+    public void watchAdventure() {
+        System.out.println("Watching an Adventure!");
     }
 }
 
@@ -46,8 +52,14 @@ class Comedy extends Movie {
     @Override
     public void watchMovie() {
         super.watchMovie();
+        System.out.printf(".. %s%n".repeat(3),
+                "Something funny happens",
+                "Something even funnier happens",
+                "Happy Ending");
+    }
 
-        System.out.printf("..%s%n".repeat(3),"Something funny happens", "Funky Music", "Happy Ending");
+    public void watchComedy() {
+        System.out.println("Watching a Comedy!");
     }
 }
 
@@ -60,7 +72,13 @@ class ScienceFiction extends Movie {
     @Override
     public void watchMovie() {
         super.watchMovie();
+        System.out.printf(".. %s%n".repeat(3),
+                "Bad Aliens do Bad Stuff",
+                "Space Guys Chase Aliens",
+                "Planet Blows Up");
+    }
 
-        System.out.printf("..%s%n".repeat(3),"Bad Aliens do bad stuff", "Scary Music", "Planet existing ends");
+    public void watchScienceFiction() {
+        System.out.println("Watching a Science Fiction Thriller!");
     }
 }
